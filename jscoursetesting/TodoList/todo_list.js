@@ -2,7 +2,7 @@ const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
 const clearCompletedBtn = document.getElementById("clearCompletedBtn");
-
+const clearAllTask = document.getElementById("clearAllTask");
 let tasks = [];
 
 function addTasks() {
@@ -34,7 +34,11 @@ function toggleTask(index) {
             tasks = tasks.filter(task => !task.completed);
             displayTasks();
         }
-
+    function clearAllTasks(){
+        tasks = [null];
+        displayTasks()
+    }
+clearAllTask.addEventListener("click", clearAllTasks)
 addTaskBtn.addEventListener("click", addTasks);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 
